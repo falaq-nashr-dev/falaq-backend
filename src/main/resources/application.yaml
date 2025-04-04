@@ -1,0 +1,24 @@
+spring:
+  mvc:
+    static-path-pattern: /**
+  web:
+    resources:
+      static-locations: classpath:/static/
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 50MB
+  datasource:
+    url: jdbc:postgresql://localhost:5433/falaqdb
+    username: postgres
+    password: dilshod777
+  application:
+    name: book-shop
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+my_token:
+  key: MySuperSecretKeyThatIsAtLeast32CharactersLong
+  expire_time: 604800000
