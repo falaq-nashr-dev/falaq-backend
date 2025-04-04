@@ -44,8 +44,8 @@ public class ProductController {
         Map<String, Object> productMap = new LinkedHashMap<>();
         productMap.put("id", product.getId());
         productMap.put("name", product.getName());
-        productMap.put("productTypeId", product.getProductType().getId());
-        productMap.put("productCategoryId", product.getProductCategory().getId());
+        productMap.put("productType", product.getProductType());
+        productMap.put("productCategory", product.getProductCategory());
         productMap.put("author", product.getAuthor() != null ? product.getAuthor() : null);
         productMap.put("price", product.getPrice());
         productMap.put("salePrice", product.getSalePrice());
