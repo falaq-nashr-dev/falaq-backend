@@ -11,6 +11,7 @@ import uz.app.entity.ProductRating;
 import uz.app.entity.User;
 import uz.app.repository.ProductRatingRepository;
 import uz.app.repository.ProductRepository;
+import uz.app.repository.UserRepository;
 import uz.app.util.UserUtil;
 
 import java.util.List;
@@ -27,20 +28,12 @@ public class ProductRatingController {
     private final ProductRatingRepository productRatingRepository;
     private final ProductRepository productRepository;
     private final UserUtil userUtil;
+    private final UserRepository userRepository;
 
     private ProductResponseDTO convertToProductDTO(Product product) {
         Double averageRating = productRatingRepository.getAverageRatingByProductId(product.getId());
 
         ProductResponseDTO dto = new ProductResponseDTO();
-        dto.setName(product.getName());
-        dto.setProductTypeId(product.getProductType().getId());
-        dto.setProductCategoryId(product.getProductCategory().getId());
-        dto.setAuthorId(product.getAuthor().getId());
-        dto.setPrice(product.getPrice());
-        dto.setSalePrice(product.getSalePrice());
-        dto.setQuantity(product.getQuantity());
-        dto.setDescription(product.getDescription());
-        dto.setAbout(product.getAbout());
         dto.setRating(averageRating != null ? averageRating : 0.0);
         return dto;
     }
@@ -48,7 +41,8 @@ public class ProductRatingController {
     private ProductRatingResponseDTO convertToRatingDTO(ProductRating rating) {
         ProductRatingResponseDTO dto = new ProductRatingResponseDTO();
         dto.setId(rating.getId());
-        dto.setUserId(rating.getUserId());
+        User user = userRepository.findById(rating.getUserId()).orElse(null);
+        dto.setUserFullName(user != null ? (user.getFirstName() + " " + user.getLastName()) : "Unknown");
         dto.setRating(rating.getRating());
         dto.setReview(rating.getReview());
         dto.setProduct(convertToProductDTO(rating.getBook()));
