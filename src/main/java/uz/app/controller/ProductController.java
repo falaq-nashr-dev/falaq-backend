@@ -220,8 +220,7 @@ public class ProductController {
     @PreAuthorize("hasAnyRole('SUPER_ADMIN', 'ADMIN')")
     public ResponseEntity<?> update(
             @PathVariable UUID id,
-            @RequestPart ProductDTO productDTO,
-            @RequestPart(required = false) MultipartFile photo) throws IOException {
+            @RequestBody ProductDTO productDTO) {
 
         Optional<Product> existingProduct = productRepository.findById(id);
         Optional<ProductType> productType = productTypeRepository.findById(productDTO.getProductTypeId());
@@ -246,15 +245,6 @@ public class ProductController {
         updatedProduct.setDescription(productDTO.getDescription());
         updatedProduct.setAbout(productDTO.getAbout());
         author.ifPresent(updatedProduct::setAuthor);
-
-        if (photo != null && !photo.isEmpty()) {
-            if (updatedProduct.getPhoto() != null) {
-                attachmentRepository.delete(updatedProduct.getPhoto());
-            }
-
-            Attachment attachment = Attachment.createAttachment(photo, "/products");
-            updatedProduct.setPhoto(attachment);
-        }
 
         return ResponseEntity.ok(productRepository.save(updatedProduct));
     }
