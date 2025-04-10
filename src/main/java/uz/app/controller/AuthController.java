@@ -19,7 +19,7 @@ import uz.app.repository.UserRepository;
 import java.time.LocalDateTime;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("api/auth")
 @RequiredArgsConstructor
 @Tag(name = "Authorization Controller",description = "This is for entering to system")
 public class AuthController {

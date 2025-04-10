@@ -19,7 +19,7 @@ import java.util.UUID;
 
 /*  PHONE-NUMBER: 111,  PASSWORD: super111.   For logining to system     */
 @RestController
-@RequestMapping("/super-admin")
+@RequestMapping("api/super-admin")
 @RequiredArgsConstructor
 @Tag(name = "Super Admin Controller",description = "Only Super Admin can manage")
 @PreAuthorize("hasRole('SUPER_ADMIN')")

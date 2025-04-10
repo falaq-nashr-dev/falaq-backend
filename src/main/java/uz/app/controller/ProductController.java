@@ -16,7 +16,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("api/products")
 @RequiredArgsConstructor
 @Tag(name = "Product Management")
 @CrossOrigin(origins = "*")

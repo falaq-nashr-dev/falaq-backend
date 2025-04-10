@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/book-pages")
+@RequestMapping("api/book-pages")
 @RequiredArgsConstructor
 @PreAuthorize("hasAnyRole('SUPER_ADMIN', 'ADMIN','USER')")
 @Tag(name = "Book Page Management", description = "Only Admin & Super Admin can manage")

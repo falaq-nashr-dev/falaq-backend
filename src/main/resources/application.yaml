@@ -1,8 +1,6 @@
 spring:
   mvc:
     static-path-pattern: /**
-    servlet:
-      path: /api
   web:
     resources:
       static-locations: classpath:/static/

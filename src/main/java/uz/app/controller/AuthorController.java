@@ -13,7 +13,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/authors")
+@RequestMapping("api/authors")
 @RequiredArgsConstructor
 @Tag(name = "Author Management", description = "Only Admin & Super Admin can manage")
 @PreAuthorize("hasAnyRole('SUPER_ADMIN', 'ADMIN')")

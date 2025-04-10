@@ -21,7 +21,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/orders")
+@RequestMapping("api/orders")
 @RequiredArgsConstructor
 @Tag(name = "Order Management")
 public class OrderController {

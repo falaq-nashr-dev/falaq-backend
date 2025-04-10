@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/product-category")
+@RequestMapping("api/product-category")
 @RequiredArgsConstructor
 @PreAuthorize("hasAnyRole('SUPER_ADMIN', 'ADMIN')")
 @Tag(name = "Product Category Management", description = "Only Admin & Super Admin can manage")
