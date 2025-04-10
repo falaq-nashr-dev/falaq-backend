@@ -10,9 +10,9 @@ spring:
       max-file-size: 50MB
       max-request-size: 50MB
   datasource:
-    url: jdbc:postgresql://localhost:5433/falaqdb
+    url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
-    password: dilshod777
+    password: FalaqNashr#
   application:
     name: book-shop
   jpa:
