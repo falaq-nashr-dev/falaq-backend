@@ -48,7 +48,7 @@ public class MyConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(cors -> cors.configurationSource(request -> {
                     var corsConfig = new org.springframework.web.cors.CorsConfiguration();
-                    corsConfig.setAllowedOrigins(List.of("http://localhost:3000"));
+                    corsConfig.setAllowedOrigins(List.of("https://falaqnashr.uz"));
                     corsConfig.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS","PATCH"));
                     corsConfig.setAllowedHeaders(List.of("*"));
                     corsConfig.setAllowCredentials(true);
@@ -56,7 +56,7 @@ public class MyConfig {
                 }))
                 .addFilterBefore(myFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**", "/", "/api/swagger-ui/**", "/api/v3/api-docs/**","/api/**","/api/sign-in/**","/api/start/**","/api/book-pages/by-book/**").permitAll()
+                        .requestMatchers("/api/auth/**", "/", "/api/swagger-ui/**", "/api/v3/api-docs/**","/api/sign-in/**","/api/start/**","/api/book-pages/by-book/**").permitAll()
                         .requestMatchers("/api/super-admin/**").hasRole("SUPER_ADMIN")
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/operator/**").hasRole("OPERATOR")
