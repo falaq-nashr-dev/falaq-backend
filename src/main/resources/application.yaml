@@ -16,4 +16,9 @@ spring:
       ddl-auto: update
 my_token:
   key: MySuperSecretKeyThatIsAtLeast32CharactersLong
-  expire_time: 604800000
+  expire_time:
+    604800000
+
+    #  url: jdbc:postgresql://localhost:5432/postgres
+    # username: postgres
+    # password: FalaqNashr#

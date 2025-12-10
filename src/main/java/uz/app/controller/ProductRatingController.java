@@ -22,7 +22,6 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("api/product-rating")
 @RequiredArgsConstructor
-@PreAuthorize("isAuthenticated()")
 @Tag(name = "Product Rating Management", description = "Every logged in User can manage")
 public class ProductRatingController {
     private final ProductRatingRepository productRatingRepository;
